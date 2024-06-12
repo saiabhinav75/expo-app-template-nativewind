@@ -8,9 +8,15 @@ import {
 
 } from "react-native"; 
 
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
+
 const App = () => { 
     const [task, setTask] = useState(""); 
-    const [tasks, setTasks] = useState(['']); 
+    const [tasks, setTasks] = useState<string[]>([]); 
     const [editIndex, setEditIndex] = useState(-1); 
     const handleAddTask = () => { 
         if (task) { 
@@ -61,8 +67,8 @@ const App = () => {
     ); 
   
     return ( 
-        <View > 
-            <Text >ToDo App</Text> 
+        <View className="flex-1 justify-center align-middle  bg-red-400"> 
+            <Text className="test-2xl font-bold">ToDo App</Text> 
             <TextInput 
                 placeholder="Enter task"
                 value={task} 
